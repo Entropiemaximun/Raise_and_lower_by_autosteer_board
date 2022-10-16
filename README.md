@@ -10,20 +10,20 @@ UDP:  line 214
 
   #define  Hyd_up A1
   #define  Hyd_down A2
-  can be switch 
-  
-  to 
+
+can be switch    to 
   
   #define  Hyd_up 2
   #define  Hyd_down 5
 
 ------------------------------------
-USP:  line 58
+USB:  line 49
 
 #define RAISE_PIN 2
 #define LOWER_PIN 5
 
-to
+  can be switch    to 
+
 
 #define RAISE_PIN A1
 #define LOWER_PIN A2
