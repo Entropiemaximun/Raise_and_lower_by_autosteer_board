@@ -1,5 +1,8 @@
 /* add  machine  raise and lower management  by  A1 A2  or D2 D5
-  UDP Autosteer code for ENC28J60 module
+ improvement  12/03/2023  PW2 noise/watchdog    if  timing  set 255  it is continous  activation  and can be  reactivate on request  if not  only one time   
+ 
+  
+ UDP Autosteer code for ENC28J60 module
   For AgOpenGPS
   4 Feb 2021, Brian Tischler
   Like all Arduino code - copied from somewhere else :)
@@ -520,6 +523,7 @@ void loop()
     if (steerConfig.SteerSwitch == 1)         //steer switch on - off
     {
       steerSwitch = digitalRead(STEERSW_PIN); //read auto steer enable switch open = 0n closed = Off
+      
     }
     else if (steerConfig.SteerButton == 1)     //steer Button momentary
     {
@@ -538,6 +542,7 @@ void loop()
         }
       }
       previous = reading;
+      
     }
     else                                      // No steer switch and no steer button
     {
@@ -548,6 +553,7 @@ void loop()
       {
         steerSwitch = 0;
         previous = 1;
+        
       }
 
       // This will set steerswitch off and make the above check wait until the guidanceStatus has gone to 0
@@ -555,7 +561,11 @@ void loop()
       {
         steerSwitch = 1;
         previous = 0;
+        
+       
       }
+      
+        
     }
 
     if (steerConfig.ShaftEncoder && pulseCount >= steerConfig.PulseCountMax)
@@ -649,6 +659,7 @@ void loop()
 
     if (watchdogTimer < WATCHDOG_THRESHOLD)
     {
+       
       //Enable H Bridge for IBT2, hyd aux, etc for cytron
       if (steerConfig.CytronDriver)
       {
@@ -671,6 +682,7 @@ void loop()
     }
     else
     {
+       
       //we've lost the comm to AgOpenGPS, or just stop request
       //Disable H Bridge for IBT2, hyd aux, etc for cytron
       if (steerConfig.CytronDriver)
@@ -689,10 +701,12 @@ void loop()
       pwmDrive = 0; //turn off steering motor
       motorDrive(); //out to motors the pwm value
       pulseCount = 0;
+
+      
     }
     ////////////////////////
 
-    if (watchdogTimer > 20)
+    if (watchdogTimer  > WATCHDOG_THRESHOLD ) // > 20)
     {
       if (aogConfig.isRelayActiveHigh) {
         relayLo = 255;
@@ -744,10 +758,12 @@ void loop()
       }
 
       //if anything wrong, shut off hydraulics, reset last
-      if ((hydLift != 1 && hydLift != 2) || watchdogTimer >= WATCHDOG_FORCE_VALUE + 20 ) //|| gpsSpeed < 2)
+      if ((hydLift != 1 && hydLift != 2) || watchdogTimer >=  WATCHDOG_THRESHOLD ) //|| gpsSpeed < 2)
       {
         lowerTimer = 0 ;
         raiseTimer = 0 ;
+        
+       if ((aogConfig.lowerTime >= 255 ) || (aogConfig.raiseTime >= 255 )) lastTrigger = 0;
 
       }
 
@@ -764,31 +780,7 @@ void loop()
         if (raiseTimer > clockTime) isRaise = false;
       }
     }
-    Serial.print(lowerTimer  );
-    Serial.print(" - ");
-    Serial.print(raiseTimer );
-    Serial.print(" -lth ");
-    Serial.print(clockTime);
-    Serial.print(" -h ");
-    Serial.print(hydLift * 10);
-    Serial.print(" -tl ");
-    Serial.print(lowerTimer);
-    Serial.print(" -tr ");
-    Serial.print(raiseTimer);
-    Serial.print(" -lt ");
-    Serial.print(aogConfig.lowerTime );
-    Serial.print(" -rt ");
-    Serial.print(aogConfig.raiseTime );
-    Serial.print(" - ");
-    //Serial.print(aogConfig.user1);
-    //Serial.print(" - ");
-    //Serial.print(aogConfig.user2);
-    //Serial.print(" - ");
-    //Serial.print(aogConfig.user3);
-    //Serial.print(" - ");
-    Serial.print(watchdogTimer);
-    Serial.print(" - ");
-    Serial.println(" data  machine");
+
 
 
     //section relays
@@ -863,7 +855,10 @@ void udpSteerRecv(uint16_t dest_port, uint8_t src_ip[IP_LEN], uint16_t src_port,
       steerAngleSetPoint = ((float)(udpData[8] | udpData[9] << 8)) * 0.01; //high low bytes
 
       //Serial.println(gpsSpeed);
+      
 
+
+    
       if ((bitRead(guidanceStatus, 0) == 0) || (gpsSpeed < 0.1) || (steerSwitch == 1))
       {
         watchdogTimer = WATCHDOG_FORCE_VALUE; //turn off steering motor
@@ -1189,7 +1184,7 @@ void udpSteerRecv(uint16_t dest_port, uint8_t src_ip[IP_LEN], uint16_t src_port,
       //Bit 13 CRC
 
       //reset watchdog
-      watchdogTimer = 0;
+       //  watchdogTimer = 0;
     }
 
     else if (udpData[3] == 200) // Hello from AgIO
@@ -1198,7 +1193,7 @@ void udpSteerRecv(uint16_t dest_port, uint8_t src_ip[IP_LEN], uint16_t src_port,
       {
         relayLo -= 255;
         relayHi -= 255;
-        watchdogTimer = 0;
+        //  watchdogTimer =0;
       }
 
       helloFromMachine[5] = relayLo;
