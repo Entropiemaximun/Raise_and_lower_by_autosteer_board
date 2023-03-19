@@ -18,4 +18,13 @@ can be switch    to
 
 
 
-download  the total folder  to  send  to the arduino nano
+Download  the total folder  to  send  to the arduino nano
+
+ Example of solution  with D2 D5 in autosteer board  V2
+ 
+ https://www.youtube.com/watch?v=T0ZdjZxdR2E
+ 
+ and application 
+ 
+ https://www.youtube.com/watch?v=u_cRjiCn22A
+ 
