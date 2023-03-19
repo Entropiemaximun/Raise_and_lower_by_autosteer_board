@@ -1,15 +1,21 @@
-# Raise_and_lower_by_autosteer_Board
-Agopengps   lower and raise  with D2 D5 or  A1 A2 pin  with autosteer board  PCB V2 (  or similar )
+# Raise_and_lower_by_autosteer_Board  USB and UDP   test with 5.7.2 Agopengps   
 
-USB and UDP   test with 5.7.2
 
+Lower and raise  with D2 D5 or  A1 A2 pin  with autosteer board  PCB V2 (  or similar )
+
+ Example of solution  with D2 D5 in autosteer board  V2
+ 
+ https://www.youtube.com/watch?v=T0ZdjZxdR2E
 
 
 ------------------------------------
-UDP& USB:  line 214
+UDP& USB: 
+
+![change d2-5 a1-2](https://user-images.githubusercontent.com/88970536/226169202-a821cdea-a2df-4894-84c9-47cbe16aa7c6.png)
 
 #define  Hyd_up A1  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
 #define  Hyd_down A2
+
 
 can be switch    to 
   
@@ -21,9 +27,7 @@ Download  the total folder  to  send  to the arduino nano
 
 ----------------------------
 
- Example of solution  with D2 D5 in autosteer board  V2
- 
- https://www.youtube.com/watch?v=T0ZdjZxdR2E
+
  
  and application 
  
