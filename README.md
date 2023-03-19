@@ -30,6 +30,8 @@ Download  the total folder  to  send  to the arduino nano
  https://www.youtube.com/watch?v=u_cRjiCn22A
  
  
+ 
+ --------------------------------------------------------
   timing  of 255  deliver an infinite timing  to the next operation
  
 ![screen](https://user-images.githubusercontent.com/88970536/226169083-d34481fc-06cf-4a41-8f5c-9b3e73b813ab.png)
