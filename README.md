@@ -18,26 +18,25 @@ UDP& USB:
 #define  Hyd_down A2
 
 
-  can be switch    to 
+  It an be switch    to 
   
 
 #define  Hyd_up D2  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
 
 #define  Hyd_down D5
 
-   this ino will replace the original autosteer Ino  on the Arduino nano 
+   This ino will replace the original autosteer Ino  on the Arduino nano 
 
 ----------------------------
-
-
  
-example of application 
+Example of application 
  
  https://www.youtube.com/watch?v=u_cRjiCn22A
  
  
  
  --------------------------------------------------------
-  timing  of 255  deliver an infinite timing  to the next operation
+  The timing  of 255  deliver an infinite timing  to the next operation
  
 ![screen](https://user-images.githubusercontent.com/88970536/226169083-d34481fc-06cf-4a41-8f5c-9b3e73b813ab.png)
+in case of stop or release activ switch   it stop the action
