@@ -40,3 +40,9 @@ Example of application
  
 ![screen](https://user-images.githubusercontent.com/88970536/226169083-d34481fc-06cf-4a41-8f5c-9b3e73b813ab.png)
 in case of stop or release activ switch   it stop the action
+
+
+
+---------------------
+
+ for previous version under 5.7.1 check release V2
