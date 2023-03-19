@@ -25,7 +25,7 @@ UDP& USB:
 
 #define  Hyd_down D5
 
-   This ino will replace the original autosteer Ino  on the Arduino nano 
+   This ino will replace the original autosteer Ino  on the Arduino nano.
 
 ----------------------------
  
@@ -36,7 +36,7 @@ Example of application
  
  
  --------------------------------------------------------
-  The timing  of 255  deliver an infinite timing  to the next operation
+  The timing  of 255  delivers an infinite timing  to the next operation.
  
 ![screen](https://user-images.githubusercontent.com/88970536/226169083-d34481fc-06cf-4a41-8f5c-9b3e73b813ab.png)
 in case of stop or release activ switch   it stop the action
