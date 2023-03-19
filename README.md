@@ -18,20 +18,20 @@ UDP& USB:
 #define  Hyd_down A2
 
 
-can be switch    to 
+  can be switch    to 
   
 
 #define  Hyd_up D2  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
 
 #define  Hyd_down D5
 
-Download  the total folder  to  send  to the arduino nano
+   this ino will replace the original autosteer Ino  on the Arduino nano 
 
 ----------------------------
 
 
  
- and application 
+example of application 
  
  https://www.youtube.com/watch?v=u_cRjiCn22A
  
