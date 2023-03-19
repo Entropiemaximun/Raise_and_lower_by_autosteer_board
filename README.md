@@ -14,6 +14,7 @@ UDP& USB:
 ![change d2-5 a1-2](https://user-images.githubusercontent.com/88970536/226169202-a821cdea-a2df-4894-84c9-47cbe16aa7c6.png)
 
 #define  Hyd_up A1  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
+
 #define  Hyd_down A2
 
 
@@ -21,6 +22,7 @@ can be switch    to
   
 
 #define  Hyd_up D2  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
+
 #define  Hyd_down D5
 
 Download  the total folder  to  send  to the arduino nano
