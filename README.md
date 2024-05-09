@@ -21,9 +21,9 @@ UDP& USB:
   It an be switch    to 
   
 
-#define  Hyd_up D2  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
+#define  Hyd_up 2  ///   define   the  pin  to up and down       can be   D2 D5 A1 A2 ...  like A1 in this line
 
-#define  Hyd_down D5
+#define  Hyd_down 5
 
    This ino will replace the original autosteer Ino  on the Arduino nano.
 
