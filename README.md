@@ -1,4 +1,4 @@
-# Raise_and_lower_by_autosteer_Board  USB and UDP    with 5.7.2 Agopengps   
+# Raise_and_lower_by_autosteer_Board  USB and UDP    with 5.7.2 &+   & V6 Agopengps   
 
 
 Lower and raise  with D2 D5 or  A1 A2 pin  with autosteer board  PCB V2 (  or similar )
